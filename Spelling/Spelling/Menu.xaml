@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             NavigationPage.HasNavigationBar="True"
+             Title="Spell IT"
+             mc:Ignorable="d"
+             x:Class="Spelling.Menu">
+
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+            
+            <!--TITLE -->
+            <Image Source="icon.png"
+                   WidthRequest="{OnPlatform iOS=150, Android=130}"
+                   HorizontalOptions="Center" />
+
+            <!--LIST-->
+            <Label HorizontalOptions="CenterAndExpand" 
+                   Text="LIST" 
+                   FontSize="18" 
+                   FontAttributes="Bold" 
+                   TextColor="Black"
+                   Padding="0,20,0,0"
+                   CharacterSpacing="5"/>
+            <Picker x:Name="picker" Title=" - select - " TitleColor="Black" TextColor="Green" FontSize="18">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>A1</x:String>
+                        <x:String>A2</x:String>
+                        <x:String>B1</x:String>
+                        <x:String>B2 (1)</x:String>
+                        <x:String>B2 (2)</x:String>
+                        <x:String>C1</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+                        
+            <!--LEVEL-->
+            <StackLayout Orientation="Horizontal">
+                <Label x:Name="Level" HorizontalOptions="CenterAndExpand" Text="LEVEL: " FontSize="18" FontAttributes="Bold" Padding="0,25,0,15" TextColor="Black" CharacterSpacing="5"/>
+                <Label x:Name="Changed" HorizontalOptions="CenterAndExpand" Text="1" FontSize="18" FontAttributes="Bold" Padding="0,25,0,15" TextColor="Black" CharacterSpacing="5"/>
+            </StackLayout>
+            
+            <Slider Maximum="30" ValueChanged="ChangeLabel" ThumbColor="Green" MinimumTrackColor="Green" MaximumTrackColor="Green"/>
+            
+            <!--PRACTICE-->
+            <Label Text="PRACTICE" FontSize="18" FontAttributes="Bold" Grid.Column="0" Grid.Row="2" HorizontalOptions="CenterAndExpand" TextColor="Black" Padding="0,35,0,0" CharacterSpacing="5"/>
+            <Switch x:Name="Practice" IsToggled="false" OnColor="Green" ThumbColor="Green" HorizontalOptions="Start"/>
+
+            <ActivityIndicator x:Name="Activity_Indicator" 
+                               Color="Black" 
+                               IsRunning="False"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+            <!--BUTTON-->
+            <Button Text="Start Spelling" 
+                    VerticalOptions="EndAndExpand" 
+                    Clicked="AnotherPage" 
+                    BackgroundColor="#FFEE07" 
+                    TextColor="Black"
+                    CornerRadius="30"/>
+
+            <!--BUTTON
+            <Button Text="Go Browser" 
+                    VerticalOptions="EndAndExpand" 
+                    Clicked="Btn_Browser"
+                    BackgroundColor="Crimson" 
+                    TextColor="White"
+                    CornerRadius="30"/>
+             -->
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>

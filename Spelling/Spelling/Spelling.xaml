@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="Spelling.Spelling"
+             Title="Spell IT">
+
+    <StackLayout Padding="30">
+        <Label x:Name="SpellData" 
+               HorizontalOptions="CenterAndExpand" 
+               CharacterSpacing="5" 
+               FontSize="20"
+               FontAttributes="Bold"
+               TextColor="Black"
+               Padding="0,0,0,20"/>
+
+        <Label x:Name="CountingWords" 
+               Text=""
+               HorizontalOptions="CenterAndExpand"
+               Padding="0,0,0,50"/>
+
+        <ImageButton x:Name="Btn_S"
+                     BackgroundColor="#FFF"
+                     BorderWidth="0"
+                     BorderColor="Black"
+                     CornerRadius="100"
+                     HeightRequest="150"
+                     WidthRequest="150"
+                     HorizontalOptions="Center"
+                     Clicked="Speak"
+                     Source="icon"/>
+
+        <Label x:Name="CorrectWord" 
+               Text="Push the button to start spelling" 
+               HorizontalOptions="CenterAndExpand" 
+               Padding="0,30,0,0"
+               FontSize="15"/>
+
+        <Entry x:Name="EntryWord" 
+               Placeholder="Type word here" 
+               VerticalOptions="CenterAndExpand"
+               Keyboard="Plain"
+               Completed="Test"
+               IsSpellCheckEnabled="False"
+               IsTextPredictionEnabled="False"
+               ClearButtonVisibility="WhileEditing"
+               IsReadOnly="True"
+               CursorPosition="0"/>
+
+        <ActivityIndicator x:Name="Activity_Indicator" 
+                           Color="Black" 
+                           IsRunning="False"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+
+        <Button x:Name="Cancel"
+                Text="End"
+                TextColor="White"
+                VerticalOptions="End"
+                HorizontalOptions="Start"
+                CornerRadius="100"
+                BackgroundColor="Crimson"
+                BorderWidth="0"
+                Clicked="Cancel_Clicked"/>
+
+    </StackLayout>
+
+</ContentPage>

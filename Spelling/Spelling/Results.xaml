@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="False"
+             Title="Score"
+             mc:Ignorable="d"
+             x:Class="Spelling.Results">
+
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+
+            <StackLayout Orientation="Horizontal" Padding="0,0,0,20">
+                <Label x:Name="Correctas" 
+                       Text="Correct: 0" 
+                       TextColor="Green"
+                       WidthRequest="500"
+                       FontSize="15"/>
+                
+                <Label x:Name="Incorrectas" 
+                       Text="Incorrect: 0" 
+                       TextColor="Crimson"
+                       WidthRequest="500"
+                       FontSize="15"/>
+                
+            </StackLayout>
+
+            <ScrollView>
+                <StackLayout x:Name="ResultadosList" 
+                             VerticalOptions="CenterAndExpand" 
+                             HorizontalOptions="StartAndExpand"/>
+            </ScrollView>
+            
+            <Button x:Name="Home" 
+                    VerticalOptions="EndAndExpand" 
+                    HorizontalOptions="Fill"
+                    Text="HOME"
+                    Clicked="GoHome_Btn"
+                    BackgroundColor="#FFEE07"
+                    TextColor="Black"
+                    CornerRadius="30"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
