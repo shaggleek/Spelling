@@ -45,9 +45,26 @@
             
             <Slider Maximum="30" ValueChanged="ChangeLabel" ThumbColor="Green" MinimumTrackColor="Green" MaximumTrackColor="Green"/>
             
-            <!--PRACTICE-->
-            <Label Text="PRACTICE" FontSize="18" FontAttributes="Bold" Grid.Column="0" Grid.Row="2" HorizontalOptions="CenterAndExpand" TextColor="Black" Padding="0,35,0,0" CharacterSpacing="5"/>
-            <Switch x:Name="Practice" IsToggled="false" OnColor="Green" ThumbColor="Green" HorizontalOptions="Start"/>
+            <!--SWITCHES-->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <StackLayout Padding="0,0,25,0" HorizontalOptions="Start" VerticalOptions="Start">
+                    <Label Text="PRACTICE" FontSize="18" FontAttributes="Bold" Grid.Column="0" Grid.Row="2" HorizontalOptions="CenterAndExpand" TextColor="Black" Padding="0,35,0,0"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                        <Label Text="OFF"/>
+                        <Switch x:Name="Practice" IsToggled="false" OnColor="Green" ThumbColor="Green" HorizontalOptions="Start"/>
+                        <Label Text="ON"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Padding="25,0,0,0" HorizontalOptions="End" VerticalOptions="End">
+                    <Label Text="SKILL" FontSize="18" FontAttributes="Bold" Grid.Column="0" Grid.Row="2" HorizontalOptions="CenterAndExpand" TextColor="Black" Padding="0,35,0,0"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                        <Label Text="Speak"/>
+                        <Switch x:Name="Skill" IsToggled="false" OnColor="Green" ThumbColor="Green" HorizontalOptions="Start"/>
+                        <Label Text="Listen"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
 
             <ActivityIndicator x:Name="Activity_Indicator" 
                                Color="Black" 
@@ -55,21 +72,13 @@
                                VerticalOptions="Center"
                                HorizontalOptions="Center"/>
             <!--BUTTON-->
-            <Button Text="Start Spelling" 
+            <Button Text="Start Practicing" 
                     VerticalOptions="EndAndExpand" 
                     Clicked="AnotherPage" 
                     BackgroundColor="#FFEE07" 
                     TextColor="Black"
                     CornerRadius="30"/>
 
-            <!--BUTTON
-            <Button Text="Go Browser" 
-                    VerticalOptions="EndAndExpand" 
-                    Clicked="Btn_Browser"
-                    BackgroundColor="Crimson" 
-                    TextColor="White"
-                    CornerRadius="30"/>
-             -->
         </StackLayout>
     </ContentPage.Content>
     

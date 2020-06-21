@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Spelling.Listening">
+
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+            <Label  x:Name="ListenData" 
+                    HorizontalOptions="CenterAndExpand" 
+                    CharacterSpacing="5" 
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    TextColor="Black"
+                    Padding="0,0,0,20"/>
+            
+            <Label x:Name="CountingWords" 
+               Text=""
+               HorizontalOptions="CenterAndExpand"
+               Padding="0,0,0,0"/>
+
+            <Label  x:Name="TheWord" 
+                    Text="Push the button to start spelling" 
+                    HorizontalOptions="CenterAndExpand" 
+                    
+                    Padding="0,30,0,0"
+                    FontSize="30"/>
+
+            <Label  x:Name="YouSay" 
+                    Text="Push the button to start" 
+                    HorizontalOptions="CenterAndExpand" 
+                    Padding="0,30,0,0"
+                    FontSize="10"/>
+
+            <ImageButton x:Name="Btn_S"
+                     BackgroundColor="#FFF"
+                     BorderWidth="0"
+                     BorderColor="Black"
+                     CornerRadius="100"
+                     HeightRequest="150"
+                     WidthRequest="150"
+                     HorizontalOptions="Center"
+                     Clicked="SpeakTesting"
+                     Source="icon"/>
+
+            <Button x:Name="Cancel"
+                    Text="End"
+                    TextColor="White"
+                    VerticalOptions="End"
+                    HorizontalOptions="Start"
+                    CornerRadius="100"
+                    BackgroundColor="Crimson"
+                    BorderWidth="0"
+                    Clicked="Cancel_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 using Xamarin.Forms.Xaml;
 
 namespace Spelling
@@ -28,8 +29,28 @@ namespace Spelling
         {
             try
             {
-                //Activity_Indicator.IsRunning = true;
-                await Navigation.PushAsync(new Spelling(picker.Items[picker.SelectedIndex], Changed.Text, Practice.IsToggled));
+                if (Skill.IsToggled) // Spelling -> You Listen
+                {
+                    await Navigation.PushAsync(new Spelling(picker.Items[picker.SelectedIndex], Changed.Text, Practice.IsToggled));
+                }
+                else // Listening -> You Speak
+                {
+                    var permissions = await Permissions.CheckStatusAsync<Permissions.Microphone>();
+                    if(permissions !=  PermissionStatus.Granted)
+                    {
+                        permissions = await Permissions.RequestAsync<Permissions.Microphone>();
+                    }
+
+                    if(permissions == PermissionStatus.Granted)
+                    {
+                        await Navigation.PushAsync(new Listening(picker.Items[picker.SelectedIndex], Changed.Text, Practice.IsToggled));
+                    }
+                    else
+                    {
+                        string action = await DisplayActionSheet("Enable microphone permission to continue", "Cancel", null);
+                    }
+                    
+                } 
             }
             catch (ArgumentOutOfRangeException)
             {

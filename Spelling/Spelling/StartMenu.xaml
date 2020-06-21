@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Welcome to SPELL IT"
+             x:Class="Spelling.StartMenu">
+    <ContentPage.Content>
+        
+        <StackLayout Padding="20,35,20,20" BackgroundColor="AliceBlue">
+            <ScrollView>
+                <Grid ColumnSpacing="15" RowSpacing="15">
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150" />
+                        <RowDefinition Height="150" />
+                        <RowDefinition Height="150" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Row="0"
+                            Grid.ColumnSpan="2"
+                            Text="Vocabulary"
+                            FontSize="Large"
+                            TextColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            BackgroundColor="ForestGreen"
+                            CornerRadius="20"
+                            Clicked="TextToSpeech"/>
+
+                    <Button Grid.Row="1"
+                            Grid.ColumnSpan="2"
+                            Text="Assistant"
+                            FontSize="Large"
+                            TextColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            BackgroundColor="BlueViolet"
+                            CornerRadius="20"
+                            Clicked="BotAssist"/>
+
+                    <Button Grid.Row="2"
+                            Grid.Column="0"
+                            Text="Web"
+                            FontSize="Large"
+                            TextColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            BackgroundColor="RoyalBlue"
+                            CornerRadius="20"
+                            Clicked="WebPage"/>
+
+                    <ImageButton Grid.Row="2"
+                                 Grid.Column="1"
+                                 Source="icon.png"
+                                 BackgroundColor="AliceBlue"
+                                 CornerRadius="100"
+                                 HorizontalOptions="FillAndExpand" 
+                                 VerticalOptions="FillAndExpand"/>
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

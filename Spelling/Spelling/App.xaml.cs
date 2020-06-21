@@ -9,7 +9,7 @@ namespace Spelling
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new Menu());
+            MainPage = new NavigationPage(new StartMenu());
         }
 
         protected override void OnStart()

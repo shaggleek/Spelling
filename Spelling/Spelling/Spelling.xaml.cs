@@ -8,6 +8,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Diagnostics;
 using System.Reflection;
+using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
 
 namespace Spelling
 {
@@ -44,14 +46,16 @@ namespace Spelling
 
             if (isOn)
             {
-                await TextToSpeech.SpeakAsync( wordTurn );
+                //await TextToSpeech.SpeakAsync( wordTurn );
+                await tts(wordTurn);
             }
             else
             {
                 isOn = true;
                 Btn_S.BackgroundColor = Color.FromHex("#FFEE07");
                 Activity_Indicator.IsRunning = true;
-                await TextToSpeech.SpeakAsync( wordTurn );
+                //await TextToSpeech.SpeakAsync( wordTurn );
+                await tts(wordTurn);
                 Activity_Indicator.IsRunning = false;
                 EntryWord.IsReadOnly = false;
             }
@@ -119,7 +123,8 @@ namespace Spelling
                 palabra = divideWord(randomWords[wordNumber]);
                 wordTurn = palabra[0];
                 wordNumber++;
-                await TextToSpeech.SpeakAsync(wordTurn);
+                //await TextToSpeech.SpeakAsync(wordTurn);
+                await tts(wordTurn);
             }
 
         }
@@ -139,6 +144,13 @@ namespace Spelling
                 await Navigation.PushAsync(new Results(givenAnswers, correct, incorrect));
             }
 
+        }
+
+        static async Task tts(string palabra)
+        {
+            var config = SpeechConfig.FromSubscription("a14f106b3f624c7e84dcbcf3cd285be3", "southcentralus");
+            var synthesizer = new SpeechSynthesizer(config);
+            await synthesizer.SpeakTextAsync(palabra);
         }
     }
 }
